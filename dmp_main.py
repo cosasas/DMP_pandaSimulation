@@ -3,6 +3,7 @@ from dmp_position import PositionDMP
 import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
+import config
 
 def DMP_main(showGraphs, dmp_startingPoint):
     # Load a demonstration file containing robot positions.
@@ -51,15 +52,32 @@ def DMP_main(showGraphs, dmp_startingPoint):
         axs[2].set_ylabel('Z (m)')
         axs[2].legend()
 
-        # 3D plot the DMP against the original demonstration
+            # 3D plot the DMP against the original demonstration
         fig2 = plt.figure(2)
-        ax = plt.axes(projection='3d')
+        #ax = plt.axes(projection='3d')
+        ax = fig2.add_subplot(111, projection='3d')
+    
         ax.plot3D(demo_p[:, 0], demo_p[:, 1], demo_p[:, 2], label='Demonstration')
         ax.plot3D(dmp_p[:, 0], dmp_p[:, 1], dmp_p[:, 2], label='DMP')
+        #ax.scatter3D(obstacles[:, 0], obstacles[:, 1], obstacles[:, 2], label='Obstacles')
+        ax.scatter3D(config.obstacles[:, 0], config.obstacles[:, 1], config.obstacles[:, 2], label='Obstacles')
+        
         ax.set_xlabel('X')
         ax.set_ylabel('Y')
         ax.set_zlabel('Z')
         ax.legend()
         plt.show()
+
+        # 3D plot the DMP against the original demonstration
+   #     fig2 = plt.figure(2)
+    #    ax = plt.axes(projection='3d')
+     #   ax.plot3D(demo_p[:, 0], demo_p[:, 1], demo_p[:, 2], label='Demonstration')
+     #   ax.plot3D(dmp_p[:, 0], dmp_p[:, 1], dmp_p[:, 2], label='DMP')
+     #   ax.set_xlabel('X')
+     #   ax.set_ylabel('Y')
+     #   ax.set_zlabel('Z')
+     #   ax.legend()
+     #   plt.show()
+
 
     return dmp_p

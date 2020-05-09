@@ -1,7 +1,8 @@
 from __future__ import division, print_function
 
 import numpy as np
-
+import avoid
+import config
 from canonical_system import CanonicalSystem
 
 
@@ -39,7 +40,11 @@ class PositionDMP():
         # TODO: Implement the transformation system differential equation for the acceleration, given that you know the
         # values of the following variables:
         # self.alpha, self.beta, self.gp, self.p, self.dp, tau, x
-        self.ddp = (((self.alpha*(self.beta*(self.gp-self.p)-self.dp*tau))+(fp(x)))/(tau**2))# + avoids
+        if config.avoid_function == True:
+            avoids = avoid.avoid_obstacles(self.p, self.dp, self.gp)
+            self.ddp = (((self.alpha*(self.beta*(self.gp-self.p)-self.dp*tau))+(fp(x)))/(tau**2)) + avoids
+        else:
+            self.ddp = (((self.alpha*(self.beta*(self.gp-self.p)-self.dp*tau))+(fp(x)))/(tau**2))
 
         # Integrate acceleration to obtain velocity
         self.dp += self.ddp * dt

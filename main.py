@@ -5,11 +5,13 @@ import time
 import numpy as np
 import load_panda
 import dmp_main
+import config
 
 createPath = False
 useDMP = True
+config.avoid_function = True
 numOfSteps = 500
-showGraphs = False
+showGraphs = True
 dmp_startingPoint = [-0.35, -0.35, 0.2] # 0 is the default starting point
 
 p.connect(p.GUI)
@@ -19,6 +21,15 @@ timeStep=1./60.
 p.setTimeStep(timeStep)
 p.setGravity(0, 0, -9.8)
 p.loadURDF("plane.urdf")
+
+p._cubedim = [0.3,0.3,0.2]
+p._cube_mass = 0.0884
+p._visualShapeId = -1
+p._cubeStartPos = [0.5,0,0.0375]
+p._cubeStartOrientation = p.getQuaternionFromEuler([0,0,0])
+p.createMultiBody(0,0)
+p._colCubeId = p.createCollisionShape(p.GEOM_BOX,halfExtents=p._cubedim)
+p._cubeUid = p.createMultiBody(p._cube_mass,p._colCubeId,p._visualShapeId,p._cubeStartPos,p._cubeStartOrientation)
 
 #while (1):
 if createPath == True and useDMP == False:
