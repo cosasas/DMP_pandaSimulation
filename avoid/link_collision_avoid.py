@@ -58,7 +58,7 @@ def link(robot, bullet_client, v, obstacle_radius):
         bullet_client.changeDynamics(robot, j, linearDamping=0, angularDamping=0)
         info = bullet_client.getLinkState(robot, j)
         info2 = bullet_client.getLinkState(robot, j+1)
-        if j < 7:       # den 8elw ton gripper gia arxi mporw na paikse me auto argotera
+        if j < 7:       
             p1 = info[0]            #begin of the arm
             p2 = info2[0]           #end of the arm
 
@@ -81,7 +81,7 @@ def link(robot, bullet_client, v, obstacle_radius):
         # calculate distance from obstacle vertex to the closest point
             dist = np.sqrt(np.sum((np.subtract(v, closest))**2))
         # account for size of obstacle
-            rho = dist - obstacle_radius # monodiastatos ari8mos
+            rho = dist - obstacle_radius 
             thresh = False
             if rho < threshold : #threshold:0.12
                 eta = .02
