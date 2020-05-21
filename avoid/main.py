@@ -37,7 +37,7 @@ p._cubeUid = p.createMultiBody(p._cube_mass,p._colCubeId,p._visualShapeId,p._cub
 
 obstacle_position =(-0.32,0.01,0.5) 
 obstacle_radius = 0.06     
-                                           # we use it for threshold distance
+
 
 #while (1):
 if createPath == True and useDMP == False:
