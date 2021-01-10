@@ -6,16 +6,16 @@ This project is an implementation of trajectory planning with DMP. The software 
 
 In addition, because our robot is 7Dof we are able to implement a link collision avoidance by maintaining the end effector path. The code can be found inside avoid folder.
 
-Path without obastacle
+Link path without obstacle.
 
 ![](/Images/original_path.png)
 
-Link path with obastacle, blue cube.
+Link path with obstacle, blue cube.
 
 ![](/Images/avoid2_other_view.png)
 
 
-to install PyBullet use
+To install PyBullet use
 ```
 pip install pybullet
 ```
