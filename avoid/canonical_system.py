@@ -20,9 +20,7 @@ class CanonicalSystem(object):
         tau : float
             Temporal scaling factor.
         """
-        # TODO: Implement the canonical system differential equation, given that you know the values of the following
-        # variables:
-        # self.x, self.alpha, dt, tau
+
         self.x += ((-self.alpha*self.x)/tau)*dt
         return self.x
 
