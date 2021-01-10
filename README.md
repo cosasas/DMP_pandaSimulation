@@ -1,5 +1,18 @@
 # DMP_pandaSimulation
 
+This project is an implementation of trajectory planning with DMP. The software is developed in PyBullet simulation using Frank Emika Panda robot (7DoF). We are also able to deviate from the initial path to avoid obstacles.
+
+![](/images/avoid_obs_dmp.png)
+
+In addition, because our robot is 7Dof we are able to implement a link collision avoidance by maintaining the end effector path. The code can be found inside avoid folder.
+
+Path without obastacle
+![](/images/original_path.png.png)
+
+Link path with obastacle, blue cube.
+![](/images/avoid2_other_view.png)
+
+
 to install PyBullet use
 ```
 pip install pybullet
@@ -17,7 +30,5 @@ To use DMP
 createPath = False
 useDMP = True
 ```
-
-Inside avoid folder there is also an implementation of link collision avoidance by maintaining the end effector path.
 
 [pybullet quickstart guide](https://docs.google.com/document/d/10sXEhzFRSnvFcl3XxNGhnD4N2SedqwdAvK3dsihxVUA/edit#)
