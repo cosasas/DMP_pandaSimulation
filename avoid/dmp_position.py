@@ -36,10 +36,6 @@ class PositionDMP():
             psi = np.exp(-self.h * (xj - self.c)**2)
             return self.Dp.dot(self.w.dot(psi) / psi.sum() * xj)
 
-        # DMP system acceleration
-        # TODO: Implement the transformation system differential equation for the acceleration, given that you know the
-        # values of the following variables:
-        # self.alpha, self.beta, self.gp, self.p, self.dp, tau, x
         if config.avoid_function == True:
             avoids = avoid.avoid_obstacles(self.p, self.dp, self.gp)
             self.ddp = (((self.alpha*(self.beta*(self.gp-self.p)-self.dp*tau))+(fp(x)))/(tau**2)) + avoids
