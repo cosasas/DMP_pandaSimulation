@@ -7,9 +7,11 @@ This project is an implementation of trajectory planning with DMP. The software 
 In addition, because our robot is 7Dof we are able to implement a link collision avoidance by maintaining the end effector path. The code can be found inside avoid folder.
 
 Path without obastacle
+
 ![](/Images/original_path.png)
 
 Link path with obastacle, blue cube.
+
 ![](/Images/avoid2_other_view.png)
 
 
