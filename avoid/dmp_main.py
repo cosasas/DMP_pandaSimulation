@@ -14,26 +14,15 @@ def DMP_main(showGraphs, dmp_startingPoint):
     t = np.arange(0, tau, 0.002)
     demo_p = demo[:, 0:3]
 
-    # TODO: In both canonical_system.py and dmp_position.py you will find some lines missing implementation.
-    # Fix those first.
-
-    N = 40  # TODO: Try changing the number of basis functions to see how it affects the output.
+    N = 40  
     dmp = PositionDMP(n_bfs=N, alpha=100)
     dmp.train(demo_p, t, tau)
 
-    # TODO: Try setting a different starting point for the dmp:
     if dmp_startingPoint != 0:
         dmp.p0 = dmp_startingPoint
-    # TODO: ...or a different goal point:
-    #dmp.g0 = [0.2, -0.22, 0.35]
 
-    # TODO: ...or a different time constant:
-    # tau = T
-
-    # Generate an output trajectory from the trained DMP
     dmp_p, dmp_dp, dmp_ddp = dmp.rollout(t, tau)
-    #return dmp_p
-    # 2D plot the DMP against the original demonstration
+
     if showGraphs == True:
         fig1, axs = plt.subplots(3, 1, sharex=True)
         axs[0].plot(t, demo_p[:, 0], label='Demonstration')
