@@ -18,4 +18,6 @@ createPath = False
 useDMP = True
 ```
 
+Inside avoid folder there is also an implementation of link collision avoidance by maintaining the end effector path.
+
 [pybullet quickstart guide](https://docs.google.com/document/d/10sXEhzFRSnvFcl3XxNGhnD4N2SedqwdAvK3dsihxVUA/edit#)
