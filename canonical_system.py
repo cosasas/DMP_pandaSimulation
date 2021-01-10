@@ -2,7 +2,6 @@ from __future__ import division, print_function
 
 import numpy as np
 
-
 class CanonicalSystem(object):
     def __init__(self, alpha):
         self.alpha = alpha
@@ -20,7 +19,6 @@ class CanonicalSystem(object):
         tau : float
             Temporal scaling factor.
         """
-        # TODO: Implement the canonical system differential equation, given that you know the values of the following
         # variables:
         # self.x, self.alpha, dt, tau
         self.x += ((-self.alpha*self.x)/tau)*dt
